@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Collective IQ® TCP Relay Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/connections.css" />
+    <link rel="stylesheet" href="styles/transmission.css" />
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="logo">
+        <img src="img/almaden-horizontal-white.svg" alt="Almaden TCP Relay" class="logo-img">
+        <span class="logo-text">TCP Relay</span>
+      </div>
+      <div id="header-relay-status">Loading relay status... <button id="relay-refresh-btn" class="icon-btn" title="Refresh relay info"><i class="fas fa-sync"></i></button></div>
+    </header>
+
+    <main>
+      <div id="alma-card" class="alma-card"></div>
+      
+      <section id="relays-section">
+        <h2>Relays List</h2>
+        <div id="relay-config"></div>
+      </section>
+
+      <section id="connections-section">
+        <h2>Connections List</h2>
+        <div id="status" style="color: #64748b; margin-bottom: 12px; font-style: italic;"></div>
+        <div class="controls">
+          <div class="controls-left">
+            <input id="search" type="search" placeholder="Search connections" />
+            <select id="agent-filter">
+              <option value="All">All agents</option>
+              <option value="macOS">macOS</option>
+              <option value="Windows">Windows</option>
+              <option value="Linux">Linux</option>
+              <option value="Solaris">Solaris</option>
+              <option value="Unknown">Unknown</option>
+            </select>
+          </div>
+          <div class="controls-right">
+            <button id="refresh-btn" class="icon-btn" title="Refresh connections list"><i class="fas fa-sync"></i></button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table id="connections-table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>ID</th>
+                <th>Downstream</th>
+                <th>Upstream</th>
+                <th>Upstream (IP)</th>
+                <th>OS</th>
+                <th>Created</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div id="pagination" class="pagination" aria-label="Connections pagination"></div>
+      <section id="detail" aria-live="polite"></section>
+    </main>
+    
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>Powered by <a href="https://almaden.ai/" target="_blank" rel="noopener noreferrer">Almaden</a></p>
+        <p class="footer-copyright">&copy; 2026 Almaden AI. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Floating Error Indicator -->
+    <div id="error-indicator-wrapper" style="display: none;">
+      <img id="error-character-img" src="img/errors-found.png" alt="Character" class="error-character-img">
+      <div id="error-indicator" class="error-indicator-floating">
+        <i id="error-warning-icon" class="fas fa-exclamation-triangle"></i>
+        <div class="error-content">
+          <div class="error-title">HTTP Errors Detected</div>
+          <div class="error-subtitle"><span id="error-count">0</span> connection(s) affected</div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <script type="module" src="js/main.js"></script>
+
+</html>
+    

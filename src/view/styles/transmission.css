@@ -1,0 +1,345 @@
+/* Transmission Data Flow Chart */
+.requests-header { 
+  display: flex; 
+  justify-content: space-between; 
+  gap: 8px; 
+  align-items: center; 
+}
+
+.requests-header h2 { 
+  margin: 0; 
+  color: #298398; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
+
+.requests-header h2 i { font-size: 20px; }
+.requests-header .icon-btn { background: #298398; color: #fff; }
+.requests-header .icon-btn:hover { background: #1F6575; }
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  color: #334155;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-value {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.stat-times {
+  display: flex;
+  gap: 16px;
+  color: #475569;
+  font-size: 13px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.time-item {
+  background: transparent;
+}
+
+/* Raw JSON Display */
+.raw-json-wrap {
+  margin-top: 8px;
+}
+
+.raw-toggle {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.raw-json {
+  margin-top: 8px;
+  background: #0b1220;
+  color: #94a3b8;
+  padding: 12px;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 420px;
+}
+
+.json-key { color: #60a5fa; }
+.json-string { color: #4ade80; }
+.json-number { color: #fbbf24; }
+.json-boolean { color: #f87171; }
+.json-null { color: #c4b5fd; font-style: italic; }
+
+.http-method { color: #f87171; font-weight: 600; }
+.http-header-key { color: #60a5fa; font-weight: 500; }
+.http-header-value { color: #94a3b8; }
+
+/* Endpoint Display */
+.endpoint-display {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.endpoint-row {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  gap: 12px;
+}
+
+.endpoint-label {
+  font-weight: 600;
+  color: #334155;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.endpoint-label i {
+  color: #298398;
+  width: 16px;
+}
+
+.endpoint-value {
+  flex: 1;
+  color: #0f172a;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+/* Flow Chart */
+.flow-chart {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 10px 0 6px 0;
+}
+
+.flow-node {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-width: 160px;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+  text-align: center;
+}
+
+.flow-node-title { 
+  font-weight: 700; 
+  color: #0f172a; 
+  margin-bottom: 6px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 8px; 
+}
+
+.flow-node-img { 
+  width: 32px; 
+  height: 32px; 
+  object-fit: contain; 
+}
+
+.flow-node-sub { 
+  font-size: 14px; 
+}
+
+.flow-node-values { 
+  color: #475569; 
+  font-size: 13px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+}
+
+.flow-node-value i { 
+  margin-right: 6px; 
+  color: #2b6cb0; 
+}
+
+.flow-line-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+}
+
+.flow-line-single {
+  height: 2px;
+  background: linear-gradient(90deg, #cbd5e1, #94a3b8);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-line-single.tls {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.flow-line-single.no-tls {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.line-label {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #0f172a;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Secondary Upstreams Flow */
+.secondary-flow {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 16px;
+  margin-left: 50%;
+  position: relative;
+}
+
+.secondary-relay-connector {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(180deg, #cbd5e1, #94a3b8);
+  position: relative;
+  margin-right: -2px;
+}
+
+.secondary-vertical-line {
+  width: 100%;
+  height: 100%;
+}
+
+.secondary-horizontal-branch {
+  flex: 1;
+  max-width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, #cbd5e1, #94a3b8);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.secondary-node {
+  margin-top: 20px;
+  margin-left: 12px;
+}
+
+.secondary-node .flow-node-title {
+  font-size: 13px;
+}
+
+/* HTTP Requests Table */
+.requests-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-top: 12px; 
+}
+
+.requests-table th, .requests-table td { 
+  text-align: left; 
+  padding: 8px; 
+  border-bottom: 1px solid #E5E5E5; 
+}
+
+.requests-table th { 
+  background: #F6F6F6; 
+  font-weight: 600; 
+}
+
+.requests-table tbody tr:nth-child(odd) { background: transparent; }
+.requests-table tbody tr:nth-child(even) { background: #f8fafc; }
+.requests-table tbody tr:hover { background: #E8F2F6; }
+/* Chart Legend */
+.chart-legend {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.legend-title {
+  margin-bottom: 12px;
+  color: #298398;
+  font-size: 14px;
+}
+
+.legend-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.legend-symbol {
+  font-weight: 700;
+  color: #298398;
+  font-size: 12px;
+  min-width: 24px;
+}
+
+.legend-line {
+  display: inline-block;
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-line.tls {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.legend-line.no-tls {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.legend-label {
+  font-size: 13px;
+  color: #475569;
+}
