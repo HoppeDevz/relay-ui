@@ -5,6 +5,7 @@ import { dbClient } from './database/db';
 import { connectionRoutes } from './routes/connection.routes';
 import { requestRoutes } from './routes/request.routes';
 import { relayRoutes } from './routes/relay.routes';
+import { logsRoutes } from './routes/logs.routes';
 
 const server = Fastify({ logger: true });
 
@@ -19,6 +20,7 @@ server.register(fastifyStatic, {
 server.register(connectionRoutes);
 server.register(requestRoutes);
 server.register(relayRoutes);
+server.register(logsRoutes);
 
 const start = async () => {
   try {

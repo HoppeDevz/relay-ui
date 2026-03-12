@@ -29,6 +29,9 @@
         <div id="relay-config"></div>
       </section>
 
+      <section id="logs-section">
+      </section>
+
       <section id="connections-section">
         <h2>Connections List</h2>
         <div id="status" style="color: #64748b; margin-bottom: 12px; font-style: italic;"></div>
@@ -41,6 +44,10 @@
               <option value="Windows">Windows</option>
               <option value="Linux">Linux</option>
               <option value="Solaris">Solaris</option>
+              <option value="AIX">AIX</option>
+              <option value="HP-UX">HP-UX</option>
+              <option value="BSD">BSD</option>
+              <option value="Tru64">Tru64</option>
               <option value="Unknown">Unknown</option>
             </select>
           </div>
@@ -53,10 +60,11 @@
             <thead>
               <tr>
                 <th>Status</th>
-                <th>ID</th>
                 <th>Downstream</th>
                 <th>Upstream</th>
                 <th>Upstream (IP)</th>
+                <th>Machine ID</th>
+                <th>Agent Version</th>
                 <th>OS</th>
                 <th>Created</th>
               </tr>

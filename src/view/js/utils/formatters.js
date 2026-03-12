@@ -88,6 +88,10 @@ export function getOSIcon(agent) {
     'Windows': '<i class="fab fa-windows"></i>',
     'Linux': '<i class="fab fa-linux"></i>',
     'Solaris': '<i class="fas fa-sun"></i>',
+    'AIX': '<i class="fas fa-server"></i>',
+    'HP-UX': '<i class="fas fa-server"></i>',
+    'BSD': '<i class="fab fa-freebsd"></i>',
+    'Tru64': '<i class="fas fa-server"></i>',
     'Unknown': '<i class="fas fa-question-circle"></i>'
   };
   return osMap[agent] || osMap['Unknown'];

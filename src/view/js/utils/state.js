@@ -10,7 +10,10 @@ export const state = {
   httpRequestsPageSize: 10,
   httpStatusFilter: 'all',
   relayRunning: false,
-  onConnectionClick: null
+  onConnectionClick: null,
+  logsPage: 1,
+  logsPageSize: 10,
+  logsLevelFilter: 'all'
 };
 
 export function setConnections(connections) {
@@ -38,6 +41,15 @@ export function setSelectedConnection(id) {
 export function setHttpRequestsPage(page) {
   state.httpRequestsPage = page;
 }
+
+export function setLogsPage(page) {
+  state.logsPage = page;
+}
+
+export function setLogsLevelFilter(level) {
+  state.logsLevelFilter = level;
+}
+
 export function setRelayRunning(running) {
   state.relayRunning = running;
 }

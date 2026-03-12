@@ -98,6 +98,14 @@ section h2 {
   border-radius: 4px; 
 }
 
+#logs-section {
+  margin-bottom: 12px;
+  padding: 16px;
+  border: 1px solid #E5E5E5;
+  background: #fff;
+  border-radius: 8px;
+}
+
 #connections-section { 
   margin-bottom: 12px; 
   padding: 16px; 

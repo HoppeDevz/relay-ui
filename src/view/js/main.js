@@ -1,13 +1,15 @@
-import { state, setCurrentPage, setSelectedConnection, setAgentFilter } from './utils/state.js';
+import { state, setCurrentPage, setSelectedConnection, setAgentFilter, setLogsPage, setLogsLevelFilter } from './utils/state.js';
 import { fetchConnections } from './api/connections.js';
 import { fetchTransmissionData } from './api/transmission.js';
 import { fetchHttpRequests, fetchErrorRequestsCount } from './api/requests.js';
+import { fetchLogs } from './api/logs.js';
 import { renderConnectionsPage, renderPagination } from './components/ConnectionsTable.js';
 import { renderTransmission } from './components/TransmissionFlow.js';
 import { appendHttpRequests } from './components/HttpRequestsTable.js';
 import { showHeaders } from './components/Modal.js';
 import { renderRelayInfo } from './components/RelayInfo.js';
 import { renderAlmaCard } from './components/AlmaCard.js';
+import { renderLogsViewer } from './components/LogsViewer.js';
 
 console.log('Main.js module loaded successfully');
 
@@ -126,6 +128,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   // Load relay status first to set state.relayRunning
   await renderRelayInfo();
   
+  // Load application logs
+  await loadLogs();
+  
   // Then load connections (status dots will be correct)
   await loadConnections();
 
@@ -229,3 +234,29 @@ async function showErrorsView() {
     alert('Failed to load errors: ' + err.message);
   }
 }
+
+// Load application logs
+async function loadLogs() {
+  try {
+    const data = await fetchLogs(state.logsLevelFilter, state.logsPage, state.logsPageSize);
+    renderLogsViewer(data, refreshLogs, handleLogFilterChange, handleLogsPageChange);
+  } catch (err) {
+    console.error('Failed to load logs:', err);
+  }
+}
+
+async function refreshLogs() {
+  await loadLogs();
+}
+
+function handleLogFilterChange(level) {
+  setLogsLevelFilter(level);
+  setLogsPage(1); // Reset to first page when changing filter
+  loadLogs();
+}
+
+function handleLogsPageChange() {
+  loadLogs();
+}
+
+init();

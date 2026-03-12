@@ -154,14 +154,16 @@ table {
 
 th, td { 
   text-align: left; 
-  padding: 8px; 
-  border-bottom: 1px solid #E5E5E5; 
+  padding: 10px 8px; 
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 14px;
 }
 
 th { 
   background: #F6F6F6; 
   font-weight: 600; 
-  color: #2C2C2C; 
+  color: #2C2C2C;
+  font-size: 14px;
 }
 
 tbody tr:nth-child(odd) { background: transparent; }
